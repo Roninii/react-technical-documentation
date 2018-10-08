@@ -1,0 +1,56 @@
+/* global */
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  padding-bottom: 30px;
+}
+
+/* wrappers */
+.wrapper {
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
+/* navigation */
+.react-logo {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  display: block;
+}
+.nav {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 10% 90%;
+  border-right: 4px solid #66d5fd;
+  color: white;
+}
+.nav-header {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  background-color: #26262e;
+  border-bottom: 2px solid #66d5fd;
+}
+.nav-title {
+  display: block;
+  align-self: center;
+  color: #66d5fd;
+}
+.nav-list {
+  padding-left: 20px;
+  padding-top: 20px;
+  background-color: #2d2e37;
+}
+
+.info {
+  background-color: #fff; 
+  background-image: 
+  linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+  linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
+}
