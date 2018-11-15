@@ -55,10 +55,6 @@ a {
 /* Info section */
 .info {
   background-color: #fff; 
-  background-image: 
-  linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-  linear-gradient(#eee .1em, transparent .1em);
-  background-size: 100% 1.2em;
   /* Add padding to the left side to align with the 'paper' background. */
   padding-left: 10%;
   padding-top: 20px;
@@ -78,3 +74,23 @@ h3 {
 }
 
 /* media quaries */
+@media (max-width: 900px) {
+  .wrapper {
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr;
+  }
+  .info {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .info {
+    background-image: 
+  linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+  linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
+  }
+}
