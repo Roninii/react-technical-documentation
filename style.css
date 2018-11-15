@@ -9,11 +9,15 @@ ul {
 li {
   padding-bottom: 30px;
 }
+a {
+  text-decoration: none;
+}
 
 /* wrappers */
 .wrapper {
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: 15% auto;
+  height: 100%;
 }
 
 /* navigation */
@@ -24,9 +28,9 @@ li {
   display: block;
 }
 .nav {
+  height: 100%;
   display: grid;
-  height: 100vh;
-  grid-template-rows: 10% 90%;
+  grid-template-rows: auto 1fr;
   border-right: 4px solid #66d5fd;
   color: white;
 }
@@ -44,13 +48,33 @@ li {
 .nav-list {
   padding-left: 20px;
   padding-top: 20px;
+  height: 100%;
   background-color: #2d2e37;
 }
 
+/* Info section */
 .info {
   background-color: #fff; 
   background-image: 
   linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
   linear-gradient(#eee .1em, transparent .1em);
   background-size: 100% 1.2em;
+  /* Add padding to the left side to align with the 'paper' background. */
+  padding-left: 10%;
+  padding-top: 20px;
+  line-height: 1.35rem;
 }
+h2 {
+  margin-top: 2rem;
+}
+h3 {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* styles for code */
+.code {
+  background-color: #eeeeee;
+}
+
+/* media quaries */

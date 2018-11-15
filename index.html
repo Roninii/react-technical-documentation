@@ -9,26 +9,162 @@
 </head>
 <body>
   <div class="wrapper">
-    <div class="nav">
+    <nav class="nav" id="navbar">
       <div class="nav-header">
         <img class="react-logo" src="react.svg" />
-        <h1 class='nav-title'>React</h1>
+        <header><h1 class='nav-title'>React</h1></header>
       </div>
       <div class="nav-list">
         <ul>
-          <li>Think... React</li>
-          <li>Add React to a Website</li>
-          <li>JSX</li>
-          <li>Rendering Elements</li>
-          <li>How to Contribute</li>
+          <li><a href="#Thinking_in_React" class="nav-link">Thinking in React</a></li>
+          <li><a href="#Add_React_to_a_Website" class="nav-link">Add React to a Website</a></li>
+          <li><a href="#Introducing_JSX" class="nav-link">Introducing JSX</a></li>
+          <li><a href="#Props_VS_State" class="nav-link">Props VS State</a></li>
+          <li><a href="#How_to_Contribute" class="nav-link">How to Contribute</a></li>
         </ul>
       </div>
-    </div>
+    </nav>
 
-    <div class="info">
+    <main id="main-doc" class="info">
+      <section class="main-section" id="Thinking_in_React">
+        <header>
+          <h2>Thinking in React</h2>
+        </header>
+        <p>One of the many great parts of React is how it makes you think about apps as you build them. In this document, we’ll
+        walk you through the thought process of building a searchable product data table using React.</p>
+        <h3>Start With A Mock</h3>
+        <p>Start with a JSON API and a mock from your designer.</p>
+        <h3>Step 1: Break The UI Into A Component Hierarchy</h3>
+        <p>The first thing you’ll want to do is to draw boxes around every component (and subcomponent) in the mock and give them all names. If you’re working with a designer, they may have already done this, so go talk to them! Their Photoshop layer names may end up being the names of your React components!<p>
+          <br>
+        <p>But how do you know what should be its own component? Just use the same techniques for deciding if you should create a new function or object. One such technique is the single responsibility principle, that is, a component should ideally only do one thing. If it ends up growing, it should be decomposed into smaller subcomponents.</p>
+          <br>
+        <p>Since you’re often displaying a JSON data model to a user, you’ll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That’s because UI and data models tend to adhere to the same information architecture, which means the work of separating your UI into components is often trivial. Just break it up into components that represent exactly one piece of your data model.</p>
+        <h3>Step 2: Build A Static Version in React</h3>
+        <p>Now that you have your component hierarchy, it’s time to implement your app. The easiest way is to build a version that
+        takes your data model and renders the UI but has no interactivity. It’s best to decouple these processes because
+        building a static version requires a lot of typing and no thinking, and adding interactivity requires a lot of thinking
+        and not a lot of typing. We’ll see why.</p>
+        <br>
+        <p>To build a static version of your app that renders your data model, you’ll want to build components that reuse other
+        components and pass data using props. props are a way of passing data from parent to child. If you’re familiar with the
+        concept of state, don’t use state at all to build this static version. State is reserved only for interactivity, that
+        is, data that changes over time. Since this is a static version of the app, you don’t need it.</p>
+        <br>
+        <h3>Step 3: Identify The Minimal (but complete) Representation Of UI State</h3>
+        <p>To make your UI interactive, you need to be able to trigger changes to your underlying data model. React makes this
+        easy with state.</p>
+        <br>
+        <p>To build your app correctly, you first need to think of the minimal set of mutable state that your app needs. The key
+        here is DRY: Don’t Repeat Yourself. Figure out the absolute minimal representation of the state your application needs
+        and compute everything else you need on-demand. For example, if you’re building a TODO list, just keep an array of the
+        TODO items around; don’t keep a separate state variable for the count. Instead, when you want to render the TODO count,
+        simply take the length of the TODO items array.</p>
+      </section>
 
-    </div>
+      <section class="main-section" id="Add_React_to_a_Website">
+        <header>
+          <h2>Add React to a Website</h2>
+        </header>
+          <h3>Use as little or as much React as you need.</h3>
+          <p>React has been designed from the start for gradual adoption, and you can use as little or as much React as you need.
+          Perhaps you only want to add some “sprinkles of interactivity” to an existing page. React components are a great way to
+          do that.</p>
+          <br>
+          <p>The majority of websites aren’t, and don’t need to be, single-page apps. With a few lines of code and no build tooling,
+          try React in a small part of your website. You can then either gradually expand its presence, or keep it contained to a
+          few dynamic widgets.</p>
+      </section>
+
+      <section class="main-section" id="Introducing_JSX">
+        <header>
+          <h2>Introducing JSX</h2>
+        </header>
+        <code class="code">const element = &lt;h1>Hello, world!&lt;/h1>;</code>
+        <p>This funny tag syntax is neither a string nor HTML.
+        
+        It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI
+        should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+        
+        JSX produces React “elements”. We will explore rendering them to the DOM in the next section. Below, you can find the
+        basics of JSX necessary to get you started.</p>
+
+        <h3>Why JSX?</h3>
+        <p>React embraces the fact that rendering logic is inherently coupled with other UI logic: how events are handled, how the
+        state changes over time, and how the data is prepared for display.</p>
+        <br>
+        <p>Instead of artificially separating technologies by putting markup and logic in separate files, React separates concerns
+        with loosely coupled units called “components” that contain both. We will come back to components in a further section,
+        but if you’re not yet comfortable putting markup in JS, this talk might convince you otherwise.</p>
+        <br>
+        <p>React doesn’t require using JSX, but most people find it helpful as a visual aid when working with UI inside the
+        JavaScript code. It also allows React to show more useful error and warning messages.</p>
+        <br>
+        <h3>Embedding Expressions in JSX</h3>
+        <code class="code">const name = 'Josh Perez';<br>
+          const element = &lt;h1>Hello, {name}&lt;/h1>;<br><br>
+          ReactDom.render(<br>
+          element,<br>
+          document.getElementById('root')
+          );
+        </code>
+        <br>
+        <p>You can put any valid JavaScript expression inside the curly braces in JSX. For example, <code class="code">2 + 2, user.firstName, or formatName(user)</code> are all valid JavaScript expressions.</p>
+        <br>
+        <p>In the example below, we embed the result of calling a JavaScript function, formatName(user), into an <code class="code">&lt;h1></code> element.</p>
+        <code class="code">
+        function formatName(user) {
+          return user.firstName + ' ' + user.lastName;
+        }
+        <br>
+        <br>
+        const user = {<br>
+          firstName: 'Harper',<br>
+          lastName: 'Perez'<br>
+        };
+        <br>
+        const element = (<br>
+          &lt;h1><br>
+            Hello, {formatName(user)}!<br>
+          &lt;/h1><br>
+        );
+        <br>
+        ReactDOM.render(
+          element,
+          document.getElementById('root')
+        );
+      </section>
+
+      <section class="main-section" id="Props_VS_State">
+        <header>
+          <h2>Props VS State</h2>
+        </header>
+        <p>There are two types of "model" data in React: props and state. It's important to understand the distinction
+          between the two; skim the offical <a href="https://reactjs.org/docs/state-and-lifecycle.html">React docs</a> if you
+          aren't sure what the difference is.</p>
+      </section>
+
+      <section class="main-section" id="How_to_Contribute">
+        <header>
+          <h2>How to Contribute</h2>
+        </header>
+        <p>React is one of Facebook’s first open source projects that is both under very active development and is also being used
+        to ship code to everybody on facebook.com. We’re still working out the kinks to make contributing to this project as
+        easy and transparent as possible, but we’re not quite there yet. Hopefully this document makes the process for
+        contributing clear and answers some questions that you may have.</p>
+        <ul>
+          <li><a href="https://reactjs.org/docs/how-to-contribute.html#code-of-conduct">Code of Conduct</a></li>
+          <li><a href="https://reactjs.org/docs/how-to-contribute.html#open-development">Open Development</a></li>
+          <li><a href="https://reactjs.org/docs/how-to-contribute.html#branch-organization">Branch Organization</a></li>
+          <li><a href="https://reactjs.org/docs/how-to-contribute.html#semantic-versioning">Semantic Versioning</a></li>
+          <li><a href="https://reactjs.org/docs/how-to-contribute.html#bugs">Bugs</a></li>
+        </ul>
+      </section>
+      
+    </main>
 
   </div>
+<!-- FreeCodeCamp test scripts -->
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
